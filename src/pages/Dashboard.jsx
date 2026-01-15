@@ -12,7 +12,7 @@ import {
 
 export default function Dashboard() {
   return (
-    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr] bg-foreground">
       <Sidebar />
       <div className="flex flex-col">
         <Header />
