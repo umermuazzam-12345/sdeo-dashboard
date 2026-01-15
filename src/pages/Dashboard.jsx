@@ -12,7 +12,7 @@ export default function Dashboard() {
   return (
     <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <Sidebar />
-      <div className="flex flex-col">
+      <div className="flex flex-col h-screen overflow-y-auto">
         <Header />
         <main className="flex-1 bg-background p-6">
           <div className="flex items-center justify-between mb-6">
