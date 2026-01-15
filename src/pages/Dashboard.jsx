@@ -2,75 +2,111 @@ import Header from "@/components/layouts/Header";
 import Sidebar from "@/components/layouts/Sidebar";
 import SimpleLineChart from "@/components/charts/LineChart";
 import SimplePieChart from "@/components/charts/PieChart";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+// Placeholder for icons
+const Icon = ({ className }) => <div className={`w-8 h-8 rounded-full ${className}`} />;
 
 export default function Dashboard() {
   return (
-    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr] bg-foreground">
+    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <Sidebar />
       <div className="flex flex-col">
         <Header />
-        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <main className="flex-1 bg-background p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-2xl font-semibold">Dashboard</h1>
+            <div className="flex gap-2">
+              <Button variant="secondary">Squad Management</Button>
+              <Button>+ Take Notice</Button>
+            </div>
+          </div>
+
+          {/* Top Summary Cards */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
-              <CardHeader>
-                <CardTitle>Total Sales</CardTitle>
-                <CardDescription>
-                  The total sales for the last month.
-                </CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">Total Requisitions</CardTitle>
+                {/* Icon Placeholder */}
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold">$12,345</p>
+                <div className="text-2xl font-bold">53</div>
+                <Button variant="link" className="px-0">View</Button>
               </CardContent>
             </Card>
             <Card>
-              <CardHeader>
-                <CardTitle>New Customers</CardTitle>
-                <CardDescription>
-                  The number of new customers in the last month.
-                </CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">Pending Requisitions</CardTitle>
+                {/* Icon Placeholder */}
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold">123</p>
+                <div className="text-2xl font-bold">0</div>
+                <Button variant="link" className="px-0">View</Button>
               </CardContent>
             </Card>
             <Card>
-              <CardHeader>
-                <CardTitle>Orders</CardTitle>
-                <CardDescription>
-                  The total number of orders in the last month.
-                </CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">Squad Assigned Requisitions</CardTitle>
+                {/* Icon Placeholder */}
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold">1,234</p>
+                <div className="text-2xl font-bold">0</div>
+                 <Button variant="link" className="px-0">View</Button>
               </CardContent>
             </Card>
             <Card>
-              <CardHeader>
-                <CardTitle>Products</CardTitle>
-                <CardDescription>
-                  The total number of products in the store.
-                </CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">Withdrawn Requisitions</CardTitle>
+                {/* Icon Placeholder */}
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold text-primary">12,345</p>
+                <div className="text-2xl font-bold">4</div>
+                 <Button variant="link" className="px-0">View</Button>
               </CardContent>
             </Card>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+
+          {/* Challan Count Section */}
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold mb-4 text-center">Challan Count (By Status)</h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <Card className="bg-accent">
+                <CardContent className="flex flex-col items-center justify-center p-6">
+                  <Icon className="bg-[var(--chart-1)]" />
+                  <p className="text-lg font-semibold mt-4">Total Challans</p>
+                  <p className="text-3xl font-bold mt-2">19</p>
+                  <p className="text-sm text-muted-foreground mt-4">TOTAL FINE:</p>
+                  <p className="text-lg font-semibold text-foreground">Rs. 135,000</p>
+                </CardContent>
+              </Card>
+               <Card className="bg-accent">
+                <CardContent className="flex flex-col items-center justify-center p-6">
+                  <Icon className="bg-[var(--chart-2)]" />
+                  <p className="text-lg font-semibold mt-4">Paid Challans</p>
+                  <p className="text-3xl font-bold mt-2">0</p>
+                  <p className="text-sm text-muted-foreground mt-4">PAID FINE:</p>
+                  <p className="text-lg font-semibold text-green-600">Rs. 0</p>
+                </CardContent>
+              </Card>
+               <Card className="bg-accent">
+                <CardContent className="flex flex-col items-center justify-center p-6">
+                  <Icon className="bg-[var(--chart-3)]" />
+                  <p className="text-lg font-semibold mt-4">Unpaid Challans</p>
+                  <p className="text-3xl font-bold mt-2">19</p>
+                  <p className="text-sm text-muted-foreground mt-4">UNPAID FINE:</p>
+                  <p className="text-lg font-semibold text-red-600">Rs. 135,000</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Charts Section */}
+          <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 mt-8">
             <Card>
               <CardHeader>
-                <CardTitle>Sales and Revenue</CardTitle>
-                <CardDescription>
-                  A line chart showing sales and revenue over the last few
-                  months.
-                </CardDescription>
+                <CardTitle>Challan Trends</CardTitle>
+                 <CardDescription>Monthly challan trends</CardDescription>
               </CardHeader>
               <CardContent>
                 <SimpleLineChart />
@@ -78,7 +114,8 @@ export default function Dashboard() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Product Distribution</CardTitle>
+                <CardTitle>Challan Distribution</CardTitle>
+                 <CardDescription>Challan distribution by type</CardDescription>
               </CardHeader>
               <CardContent>
                 <SimplePieChart />
