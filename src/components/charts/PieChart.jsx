@@ -14,7 +14,7 @@ const data = [
   { name: "Product D", value: 200 },
 ];
 
-const COLORS = ["#E6C27A", "#C9A24D", "#a3a3a3", "#737373"];
+const COLORS = ["hsl(var(--chart-1))", "hsl(var(--chart-2))", "hsl(var(--chart-3))", "hsl(var(--chart-4))"];
 
 export default function SimplePieChart() {
   return (

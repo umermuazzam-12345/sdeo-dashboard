@@ -31,10 +31,10 @@ export default function SimpleLineChart() {
         <Line
           type="monotone"
           dataKey="sales"
-          stroke="#E6C27A"
+          stroke="hsl(var(--primary))"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="revenue" stroke="#C9A24D" />
+        <Line type="monotone" dataKey="revenue" stroke="hsl(var(--secondary))" />
       </LineChart>
     </ResponsiveContainer>
   );
