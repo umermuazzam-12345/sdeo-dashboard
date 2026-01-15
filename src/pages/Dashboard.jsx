@@ -1,5 +1,7 @@
 import Header from "@/components/layouts/Header";
 import Sidebar from "@/components/layouts/Sidebar";
+import SimpleLineChart from "@/components/charts/LineChart";
+import SimplePieChart from "@/components/charts/PieChart";
 import {
   Card,
   CardContent,
@@ -7,8 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-
 
 export default function Dashboard() {
   return (
@@ -63,7 +63,28 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </div>
-
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Sales and Revenue</CardTitle>
+                <CardDescription>
+                  A line chart showing sales and revenue over the last few
+                  months.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <SimpleLineChart />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Product Distribution</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <SimplePieChart />
+              </CardContent>
+            </Card>
+          </div>
         </main>
       </div>
     </div>
